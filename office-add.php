@@ -124,6 +124,8 @@ if(mysqli_query($conn, $query)){
                                             </div> 
                                             
                                         </div> 
+                                        
+                                      
                                         <div class="clearfix"></div>
                                         <button type="submit"name ="submit" name = "values" class="btn btn-info btn-fill pull-right">Save</button>
                                     </form>

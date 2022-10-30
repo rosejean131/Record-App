@@ -24,7 +24,7 @@
     require('config/db.php');
 
     //gets the value sent over search form
-    // $search = $_GET['search'];
+    $search = $_GET['search'];
 
     //define the number of results you want per age\
     $results_per_page = 10;
@@ -49,17 +49,17 @@
 
 
     //create query
-    // if (strlen($search) > 0) {
-    //     $query = 'SELECT transaction.datelog, transaction.documentcode, transaction.action, transaction.remarks, office.name 
-    //     as office_name, CONCAT(employee.lastname, ",", employee.firstname) as employee_fullname 
-    //     FROM employee, office, transaction WHERE transaction.employee_id = employee.id and transaction.office_id = office.id 
-    //     and transaction.documentcode =' . $search . ' ORDER BY transaction.documentcode,transaction.datelog '.' LIMIT '. $page_per_result . ',' . $results_per_page;
-    // }else{
-    //     $query = 'SELECT transaction.datelog, transaction.documentcode, transaction.action, transaction.remarks, office.name 
-    //     as office_name, CONCAT(employee.lastname, ",", employee.firstname) as employee_fullname 
-    //     FROM employee, office, transaction WHERE transaction.employee_id = employee.id and transaction.office_id = office.id 
-    //     and transaction.documentcode =' . $search . ' ORDER BY transaction.documentcode, transaction.datelog '.' LIMIT '. $page_per_result . ',' . $results_per_page;
-    // }
+    if (strlen($search) > 0) {
+        $query = 'SELECT transaction.datelog, transaction.documentcode, transaction.action, transaction.remarks, office.name 
+        as office_name, CONCAT(employee.lastname, ",", employee.firstname) as employee_fullname 
+        FROM employee, office, transaction WHERE transaction.employee_id = employee.id and transaction.office_id = office.id 
+        and transaction.documentcode =' . $search . ' ORDER BY transaction.documentcode,transaction.datelog '.' LIMIT '. $page_per_result . ',' . $results_per_page;
+    }else{
+        $query = 'SELECT transaction.datelog, transaction.documentcode, transaction.action, transaction.remarks, office.name 
+        as office_name, CONCAT(employee.lastname, ",", employee.firstname) as employee_fullname 
+        FROM employee, office, transaction WHERE transaction.employee_id = employee.id and transaction.office_id = office.id 
+        and transaction.documentcode =' . $search . ' ORDER BY transaction.documentcode, transaction.datelog '.' LIMIT '. $page_per_result . ',' . $results_per_page;
+    }
        
     
 
